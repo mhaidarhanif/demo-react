@@ -1,3 +1,7 @@
 {
-  "recommendations": ["dbaeumer.vscode-eslint", "csstools.postcss"]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "csstools.postcss",
+    "moalamri.inline-fold"
+  ]
 }
