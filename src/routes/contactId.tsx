@@ -15,9 +15,9 @@ export function ContactIdRoute() {
   }
 
   return (
-    <div className="rounded p-2">
-      <h4>{contact.name}</h4>
-      <p>{contact.email}</p>
+    <div>
+      <h4 className="text-xl font-bold">{contact.name}</h4>
+      <p className="text-lg">{contact.email}</p>
     </div>
   );
 }

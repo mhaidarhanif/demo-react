@@ -1,23 +1,25 @@
-import { ActionFunctionArgs, Form, redirect } from "react-router-dom";
+export function AddSubmitRoute() {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    // Prevent the browser from reloading the page
+    e.preventDefault();
 
-import { addContact, Contact } from "../data/contacts";
+    // Read the form data
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-export async function action({ request }: ActionFunctionArgs) {
-  const formData = await request.formData();
+    const contactFormData = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+    };
+    console.log({ contactFormData });
 
-  const contactFormData: Contact = {
-    name: String(formData.get("name")),
-    email: String(formData.get("email")),
-  };
+    // You can work with it as a plain object:
+    const contactFormJSON = Object.fromEntries(formData.entries());
+    console.log({ contactFormJSON });
+  }
 
-  const newContact = addContact(contactFormData);
-
-  return redirect(`/contacts/${newContact.id}`);
-}
-
-export function AddContactRoute() {
   return (
-    <Form method="post" className="max-w-lg">
+    <form method="post" onSubmit={handleSubmit} className="max-w-lg">
       <div className="mb-2">
         <label
           htmlFor="name"
@@ -62,7 +64,6 @@ export function AddContactRoute() {
           Reset
         </button>
       </div>
-      {/* ... */}
-    </Form>
+    </form>
   );
 }

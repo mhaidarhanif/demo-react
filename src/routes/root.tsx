@@ -12,7 +12,7 @@ export function RootRoute() {
   return (
     <>
       <HeaderNavigation />
-      <main className="p-2">
+      <main className="p-4">
         <Outlet />
       </main>
     </>

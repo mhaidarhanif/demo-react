@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export function HeaderNavigation() {
   return (
-    <header className="m-2">
+    <header className="m-4 select-none">
       <Link to="/">
         <h1 className="text-lg font-bold">Demo React</h1>
       </Link>

@@ -14,7 +14,7 @@ export function ContactsRoute() {
   }
 
   return (
-    <ul className="m-2 space-y-2">
+    <ul className="space-y-2">
       {contacts.map((contact) => {
         return (
           <li key={contact.id}>
@@ -22,7 +22,7 @@ export function ContactsRoute() {
               to={String(contact.id)}
               className="block rounded bg-teal-100 p-2 hover:bg-teal-200"
             >
-              <h4>{contact.name}</h4>
+              <h4 className="font-bold">{contact.name}</h4>
               <p>{contact.email}</p>
             </Link>
           </li>
