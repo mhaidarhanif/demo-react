@@ -1,6 +1,6 @@
-import { Link, Outlet } from "react-router-dom";
-import { Navigation } from "../components/navigation";
+import { Outlet } from "react-router-dom";
 
+import { HeaderNavigation } from "../components/header-navigation";
 import { getContacts } from "../data/contacts";
 
 export async function loader() {
@@ -11,13 +11,7 @@ export async function loader() {
 export function RootRoute() {
   return (
     <>
-      <header className="m-2">
-        <Link to="/">
-          <h1 className="text-lg font-bold">Demo React</h1>
-        </Link>
-        <Navigation />
-      </header>
-
+      <HeaderNavigation />
       <main className="p-2">
         <Outlet />
       </main>

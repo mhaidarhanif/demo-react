@@ -53,13 +53,13 @@ export function AddContactRoute() {
       <div className="flex gap-2">
         <button
           type="submit"
-          className="w-full rounded bg-teal-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-300"
+          className="w-full rounded bg-teal-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-500"
         >
           Add Contact
         </button>
         <button
           type="reset"
-          className="rounded border border-teal-700 bg-white py-2.5 px-5 text-sm font-medium text-teal-900 hover:bg-teal-50 hover:text-teal-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200"
+          className="rounded border border-teal-700 bg-white py-2.5 px-5 text-sm font-medium text-teal-900 hover:bg-teal-50 hover:text-teal-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-teal-500"
         >
           Reset
         </button>
