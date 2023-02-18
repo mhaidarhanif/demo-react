@@ -1,13 +1,14 @@
 import { Link, useLoaderData } from "react-router-dom";
-import { getContacts } from "../data/contacts";
 
-export function loader() {
-  const contacts = getContacts();
+import { apiGetContacts } from "../api/contacts";
+
+export async function loader() {
+  const contacts = await apiGetContacts();
   return { contacts };
 }
 
 export function ContactsRoute() {
-  const { contacts } = useLoaderData() as ReturnType<typeof loader>;
+  const { contacts } = useLoaderData() as Awaited<ReturnType<typeof loader>>;
 
   if (!contacts) {
     return <p>Contacts not found</p>;

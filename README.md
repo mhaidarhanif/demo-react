@@ -18,3 +18,23 @@ Live URL: https://haidar-demo-react.vercel.app
   - Prettier Plugin Tailwind CSS
 - ESLint
   - ESLint Plugin React
+
+## Routes/Page Documentation
+
+| Route                | Description     |
+| -------------------- | --------------- |
+| /                    | Home/Landing    |
+| /contacts            | All contacts    |
+| /contacts/:contactId | One contact     |
+| /add                 | Add new contact |
+
+## API Documentation
+
+| HTTP   | Endpoint             | Description              |
+| ------ | -------------------- | ------------------------ |
+| GET    | /contacts            | Get all contacts         |
+| GET    | /contacts/:contactId | Get one contact by id    |
+| POST   | /contacts            | Add new contact          |
+| DELETE | /contacts            | Delete all contacts      |
+| DELETE | /contacts/:contactId | Delete one contact by id |
+| PUT    | /contacts/:contactId | Update one contact by id |
