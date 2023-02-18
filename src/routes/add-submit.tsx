@@ -11,11 +11,11 @@ export function AddSubmitRoute() {
       name: formData.get("name"),
       email: formData.get("email"),
     };
-    console.log({ contactFormData });
+    console.info({ contactFormData });
 
     // You can work with it as a plain object:
     const contactFormJSON = Object.fromEntries(formData.entries());
-    console.log({ contactFormJSON });
+    console.info({ contactFormJSON });
   }
 
   return (

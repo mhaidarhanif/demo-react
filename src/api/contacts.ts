@@ -8,7 +8,7 @@ export type ResourceContact = {
 
 export type ResourceContacts = ResourceContact[];
 
-export const resourceName = "/todos";
+export const resourceName = "/contacts";
 
 export async function apiGetContacts() {
   const response = await axiosInstance.get(resourceName);

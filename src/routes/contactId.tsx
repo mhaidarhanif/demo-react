@@ -1,14 +1,14 @@
 import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 
-import { getContactById } from "../data/contacts";
+import { apiGetContactById } from "../api/contacts";
 
-export function loader({ params }: LoaderFunctionArgs) {
-  const contact = getContactById(Number(params.contactId));
+export async function loader({ params }: LoaderFunctionArgs) {
+  const contact = await apiGetContactById(params.contactId);
   return { contact };
 }
 
 export function ContactIdRoute() {
-  const { contact } = useLoaderData() as ReturnType<typeof loader>;
+  const { contact } = useLoaderData() as Awaited<ReturnType<typeof loader>>;
 
   if (!contact) {
     return <p>Contact not found</p>;

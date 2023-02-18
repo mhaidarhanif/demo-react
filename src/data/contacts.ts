@@ -35,8 +35,6 @@ export function addContact(contact: Contact) {
     email: contact.email,
   };
 
-  console.log({ newContact });
-
   const newDataContacts = [...dataContacts, newContact];
   dataContacts = newDataContacts;
 

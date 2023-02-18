@@ -1,16 +1,16 @@
 import { ActionFunctionArgs, Form, redirect } from "react-router-dom";
 
-import { addContact, Contact } from "../data/contacts";
+import { apiAddContact, ResourceContact } from "../api/contacts";
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
 
-  const contactFormData: Contact = {
+  const contactFormData: ResourceContact = {
     name: String(formData.get("name")),
     email: String(formData.get("email")),
   };
 
-  const newContact = addContact(contactFormData);
+  const newContact = await apiAddContact(contactFormData);
 
   return redirect(`/contacts/${newContact.id}`);
 }

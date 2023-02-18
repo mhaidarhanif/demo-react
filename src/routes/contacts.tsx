@@ -16,6 +16,7 @@ export function ContactsRoute() {
 
   return (
     <ul className="space-y-2">
+      {contacts.length <= 0 && <p>Contacts are empty</p>}
       {contacts.map((contact) => {
         return (
           <li key={contact.id}>

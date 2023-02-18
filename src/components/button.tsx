@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export function Button(props: { children: ReactNode }) {
   function handleClick() {
-    console.log("Button is clicked by");
+    console.info("Button is clicked by");
   }
 
   return (

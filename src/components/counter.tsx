@@ -12,7 +12,7 @@ export function Counter() {
   }
 
   useEffect(() => {
-    console.log("Something happened!", counter);
+    console.info("Something happened!", counter);
   });
 
   return (
