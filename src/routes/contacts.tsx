@@ -9,6 +9,10 @@ export function loader() {
 export function ContactsRoute() {
   const { contacts } = useLoaderData() as ReturnType<typeof loader>;
 
+  if (!contacts) {
+    return <p>Contacts not found</p>;
+  }
+
   return (
     <ul className="m-2 space-y-2">
       {contacts.map((contact) => {

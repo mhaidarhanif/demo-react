@@ -8,6 +8,7 @@ import { RootRoute, loader as rootLoader } from "./routes/root";
 import { ErrorRoute } from "./routes/error";
 import { ContactsRoute, loader as contactsLoader } from "./routes/contacts";
 import { ContactIdRoute, loader as contactIdLoader } from "./routes/contactId";
+import { AddContactRoute } from "./routes/add";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         path: "/contacts/:contactId",
         element: <ContactIdRoute />,
         loader: contactIdLoader,
+      },
+      {
+        path: "/add",
+        element: <AddContactRoute />,
       },
     ],
   },

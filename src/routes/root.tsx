@@ -1,4 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
+import { Navigation } from "../components/navigation";
 
 import { getContacts } from "../data/contacts";
 
@@ -10,29 +11,16 @@ export async function loader() {
 export function RootRoute() {
   return (
     <>
-      <div className="m-2">
-        <h1>Demo React</h1>
-        <nav className="border-b-2">
-          <ul className="flex gap-2">
-            <li>
-              <Link to={"/"}>Home</Link>
-            </li>
-            <li>
-              <Link to={"/contacts"}>Contacts</Link>
-            </li>
-            <li>
-              <Link to={"/contacts/1"}>Contact 1</Link>
-            </li>
-            <li>
-              <Link to={"/contacts/2"}>Contact 2</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <header className="m-2">
+        <Link to="/">
+          <h1 className="text-lg font-bold">Demo React</h1>
+        </Link>
+        <Navigation />
+      </header>
 
-      <div id="detail">
+      <main className="p-2">
         <Outlet />
-      </div>
+      </main>
     </>
   );
 }
