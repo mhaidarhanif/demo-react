@@ -2,28 +2,28 @@ import { axiosInstance } from "../libs/axios";
 
 export type ResourceContact = {
   id?: string;
+  createdAt?: string;
+  updatedAt?: string;
+
   name: string;
   email: string;
+  contacted?: boolean;
 };
 
 export type ResourceContacts = ResourceContact[];
 
-export const resourceName = "/contacts";
-
 export async function apiGetContacts() {
-  const response = await axiosInstance.get(resourceName);
+  const response = await axiosInstance.get("/contacts");
   const contacts: ResourceContacts = response.data;
   return contacts;
 }
 
 export async function apiGetContactById(contactId: ResourceContact["id"]) {
-  const response = await axiosInstance.get(`${resourceName}/${contactId}`);
-  const contact: ResourceContact = response.data;
-  return contact;
+  const response = await axiosInstance.get(`/contacts/${contactId}`);
+  return response.data as ResourceContact;
 }
 
 export async function apiAddContact(contactData: ResourceContact) {
-  const response = await axiosInstance.post(resourceName, contactData);
-  const newContact: ResourceContact = response.data;
-  return newContact;
+  const response = await axiosInstance.post("/contacts", contactData);
+  return response.data as ResourceContact;
 }

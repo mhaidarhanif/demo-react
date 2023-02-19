@@ -19,16 +19,21 @@ Live URL: https://haidar-demo-react.vercel.app
 - ESLint
   - ESLint Plugin React
 
-## Routes/Page Documentation
+## Routes/Pages Documentation
 
-| Route                | Description     |
+| Route/Page           | Description     |
 | -------------------- | --------------- |
 | /                    | Home/Landing    |
 | /contacts            | All contacts    |
 | /contacts/:contactId | One contact     |
 | /add                 | Add new contact |
 
-## API Documentation
+## REST API Documentation
+
+Base API URL:
+
+- https://api.kontenbase.com/query/api/v1/abcdefghijklm
+- https://express-prisma-example.up.railway.app
 
 | HTTP   | Endpoint             | Description              |
 | ------ | -------------------- | ------------------------ |
@@ -38,3 +43,17 @@ Live URL: https://haidar-demo-react.vercel.app
 | DELETE | /contacts            | Delete all contacts      |
 | DELETE | /contacts/:contactId | Delete one contact by id |
 | PUT    | /contacts/:contactId | Update one contact by id |
+
+## Contact
+
+```ts
+type Contact = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+
+  name: string;
+  email: string;
+  contacted: boolean;
+};
+```

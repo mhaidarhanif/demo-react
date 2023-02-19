@@ -1,11 +1,16 @@
-import { ActionFunctionArgs, Form, redirect } from "react-router-dom";
+import {
+  ActionFunctionArgs,
+  Form,
+  redirect,
+  useNavigation,
+} from "react-router-dom";
 
-import { apiAddContact, ResourceContact } from "../api/contacts";
+import { apiAddContact } from "../api/contacts";
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
 
-  const contactFormData: ResourceContact = {
+  const contactFormData = {
     name: String(formData.get("name")),
     email: String(formData.get("email")),
   };
@@ -16,6 +21,11 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export function AddContactRoute() {
+  const navigation = useNavigation();
+  const isLoading = navigation.state !== "idle";
+  const submitText =
+    navigation.state !== "idle" ? "Adding Contact..." : "Add Contact";
+
   return (
     <Form method="post" className="max-w-lg">
       <div className="mb-2">
@@ -26,6 +36,7 @@ export function AddContactRoute() {
           Full Name
         </label>
         <input
+          id="name"
           type="text"
           name="name"
           className="block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-teal-500 focus:ring-teal-500"
@@ -41,6 +52,7 @@ export function AddContactRoute() {
           Email
         </label>
         <input
+          id="email"
           type="email"
           name="email"
           className="block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-teal-500 focus:ring-teal-500"
@@ -51,9 +63,10 @@ export function AddContactRoute() {
       <div className="flex gap-2">
         <button
           type="submit"
+          disabled={isLoading}
           className="w-full rounded bg-teal-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-500"
         >
-          Add Contact
+          {submitText}
         </button>
         <button
           type="reset"
@@ -62,7 +75,6 @@ export function AddContactRoute() {
           Reset
         </button>
       </div>
-      {/* ... */}
     </Form>
   );
 }

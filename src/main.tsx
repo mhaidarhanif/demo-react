@@ -4,8 +4,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./index.css";
 
-import { RootRoute, loader as rootLoader } from "./routes/root";
+import { RootRoute } from "./routes/root";
 import { ErrorRoute } from "./routes/error";
+import { HomeRoute, loader as homeLoader } from "./routes/home";
 import { ContactsRoute, loader as contactsLoader } from "./routes/contacts";
 import { ContactIdRoute, loader as contactIdLoader } from "./routes/contactId";
 import { AddContactRoute, action as addContactAction } from "./routes/add";
@@ -15,8 +16,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <RootRoute />,
     errorElement: <ErrorRoute />,
-    loader: rootLoader,
     children: [
+      {
+        path: "/",
+        element: <HomeRoute />,
+        loader: homeLoader,
+      },
       {
         path: "/contacts",
         element: <ContactsRoute />,

@@ -3,7 +3,7 @@ import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { apiGetContactById } from "../api/contacts";
 
 export async function loader({ params }: LoaderFunctionArgs) {
-  const contact = await apiGetContactById(params.contactId);
+  const contact = await apiGetContactById(String(params.contactId));
   return { contact };
 }
 
